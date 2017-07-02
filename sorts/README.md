@@ -7,13 +7,13 @@ I decided I wanted to figure out and implement all of the major sorting algorith
   * Selection sort
 * Efficient sorts
   * Merge sort
-  * Heapsort
-  * Quicksort
+  * Heapsort - TODO
+  * Quicksort - TODO
 * Bubble sort and variants
-  * Bubble sort
-  * Shellsort
-  * Comb sort
+  * Bubble sort - TODO
+  * Shellsort - TODO
+  * Comb sort - TODO
 * Distribution sort
-  * Counting sort
-  * Bucket sort
-  * Radix sort
+  * Counting sort - TODO
+  * Bucket sort - TODO
+  * Radix sort - TODO
