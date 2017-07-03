@@ -7,8 +7,8 @@ I decided I wanted to figure out and implement all of the major sorting algorith
   * Selection sort
 * Efficient sorts
   * Merge sort
-  * Heapsort - TODO
-  * Quicksort - TODO
+  * Heapsort
+  * Quicksort
 * Bubble sort and variants
   * Bubble sort - TODO
   * Shellsort - TODO

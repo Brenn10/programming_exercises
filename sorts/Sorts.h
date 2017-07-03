@@ -3,7 +3,6 @@
 class Sorts
 {
   public:
-    static int len(int* L,int len);
     static void insertion(int* L,int len);
     static void selection(int* L,int len);
     static void merge(int* L,int len);
@@ -16,7 +15,12 @@ class Sorts
     static void bucket(int* L,int len);
     static void radix(int* L,int len);
   private:
+    static void swap(int* L, int a,int b);
     static void mergeTwoArrays(int* L, int l, int m, int r);
     static void merge(int* L,int l,int r);
+    static void siftDown(int* L, int i, int len);
+    static void heapify(int* L, int len);
+    static int partition(int* L,int s,int e);
+    static void quick(int* L, int s,int e);
 };
 #endif
