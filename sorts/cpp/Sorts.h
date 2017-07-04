@@ -9,11 +9,8 @@ class Sorts
     static void heap(int* L,int len);
     static void quick(int* L,int len);
     static void bubble(int* L,int len);
-    static void shell(int* L,int len);
     static void comb(int* L,int len);
-    static void counting(int* L,int len);
-    static void bucket(int* L,int len);
-    static void radix(int* L,int len);
+    static void radix(int* L,int len,int n=10);
   private:
     static void swap(int* L, int a,int b);
     static void mergeTwoArrays(int* L, int l, int m, int r);
@@ -22,5 +19,6 @@ class Sorts
     static void heapify(int* L, int len);
     static int partition(int* L,int s,int e);
     static void quick(int* L, int s,int e);
+    static int log_b(int x, int b);
 };
 #endif

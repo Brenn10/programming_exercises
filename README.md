@@ -1,5 +1,5 @@
 # Programming Exercises
-My goal for this is to become familiar with 
+My goal for this is to become familiar with
 many of the problems in several languages.
 
 My plan for implementation is below:  
@@ -10,10 +10,7 @@ My plan for implementation is below:
   * Heapsort
   * Quicksort
   * Bubble sort
-  * Shellsort
   * Comb sort
-  * Counting sort
-  * Bucket sort
   * Radix sort
 * Data Structures
   * Heap

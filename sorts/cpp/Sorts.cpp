@@ -1,4 +1,5 @@
 #include "Sorts.h"
+#include <math.h>
 #include <iostream>
 
 using namespace std;
@@ -194,4 +195,96 @@ void Sorts::quick(int* L, int s,int e)
 void Sorts::quick(int* L,int len)
 {
   Sorts::quick(L,0,len-1);
+}
+
+void Sorts::bubble(int* L, int len)
+{
+  //if no swaps in last iteration, done
+  bool finished=false;
+
+  //last unit to look at, after each pass, last is greatest so shrink
+  int last = len-1;
+  while( not finished )
+  {
+    finished=true;
+    for(int i=0; i <last;i++)
+    {
+      if(L[i]>L[i+1])
+      {
+        Sorts::swap(L,i,i+1);
+        finished=false;
+      }
+    }
+    last--;
+  }
+}
+
+void Sorts::comb(int* L, int len)
+{
+  double shrink = 1.3;
+
+  //until gap = 1, do normal comb sort
+  for(int gap = len/shrink;gap>1;gap/=shrink)
+  {
+    for(int i = 0; i + gap < len; i++)
+    {
+      if(L[i]>L[i+gap])
+      {
+        Sorts::swap(L,i,i+gap);
+      }
+    }
+  }
+
+  //when gap==1, this becomes bubble, so call bubble
+  Sorts::bubble(L,len);
+}
+
+void Sorts::radix(int* L, int len,int n)
+{
+  int max=0;
+  for(int i =1; i < len; i++)
+  {
+    if(L[i]>L[max])
+      max=i;
+  }
+  int bucket[n][len+1];
+  int sig = Sorts::log_b(L[max],n);
+
+  //start from least and go to most significant figure
+  for( int j=0; j <=sig; j++)
+  {
+    //get buckets ready, 0th index is the count in bucket
+
+    for(int i =0; i <= n; i++)
+    {
+      bucket[i][0]=0;
+    }
+
+    //bucketify
+    for(int i =0; i < len; i++)
+    {
+      int buck = int(L[i]/(pow(n,j)))%n;
+      int index = bucket[buck][0];
+      bucket[buck][index+1] = L[i];
+      bucket[buck][0]+=1;
+    }
+
+    //empty buckets back to the array
+    int buck=0,ind=1;
+    for(int i =0; i < len; i++)
+    {
+      if(ind == bucket[buck][0]+1)
+      {
+        ind=1;
+        buck++;
+      }
+      L[i]=bucket[buck][ind];
+      ind+=1;
+    }
+  }
+}
+
+int Sorts::log_b(int x,int b)
+{
+  return int(log(x)/log(b));
 }
