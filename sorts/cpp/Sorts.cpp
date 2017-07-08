@@ -6,6 +6,7 @@ using namespace std;
 
 void Sorts::swap(int* L, int a, int b)
 {
+  //tmpless swap
   L[a] = L[a]+L[b];
   L[b] = L[a]-L[b];
   L[a] = L[a]-L[b];
@@ -16,16 +17,16 @@ void Sorts::insertion(int* L,int len)
   for(int i=1;i<len;i++)
   {
     int j = i;
-    //go from current to begiining and swap while the current is greater tean the previous
+    //go from current to begining and swap while the current is greater tean the previous
     while (L[j-1]>L[j]) {
-      //tmp-less swap
-      Sorts::swap(L,j,j-1);
       j--;
       if(j==0)
       {
         break;
       }
     }
+
+    Sorts::swap(L,j+1,i);
   }
 }
 
@@ -54,18 +55,23 @@ void Sorts::selection(int* L,int len)
 
 void Sorts::merge(int* L,int len)
 {
+  //call the recursive sort
   Sorts::merge(L,0,len-1);
 }
 
 void Sorts::merge(int* L,int l, int r)
 {
+  //if not 1 item
   if(l<r)
   {
+    //find middle
     int m = (l+r)/2;
 
+    //call sort on each half
     Sorts::merge(L,l,m);
     Sorts::merge(L,m+1,r);
 
+    //combine the resulting sorted arrays
     Sorts::mergeTwoArrays(L,l,m,r);
   }
 }
@@ -129,12 +135,15 @@ void Sorts::siftDown(int* L, int i, int len)
   int l = i*2+1;//left child
   int r = i*2+2;//right child
 
+  //if left child in bounds,and bigger than current
   if(l<=len)
     if(L[l]>L[t])
       t=l;
+  //if right child in bounds and bigger than current
   if(r<=len)
     if(L[r]>L[t])
       t=r;
+  //if either were bigger, swap and sift on that item, propagate down
   if(t!=i)
   {
     Sorts::swap(L,t,i);
@@ -145,6 +154,7 @@ void Sorts::siftDown(int* L, int i, int len)
 
 void Sorts::heapify(int* L, int len)
 {
+  //build heap
   for(int i = (len-1)/2; i>=0;i--)
   {
     Sorts::siftDown(L,i,len-1);
@@ -153,7 +163,14 @@ void Sorts::heapify(int* L, int len)
 
 void Sorts::heap(int* L, int len)
 {
+  //build the heap
   Sorts::heapify(L,len);
+  /*
+  While the heap is a thing, take the top element(at index 0), swap with the
+  last element in the heap's array allotment, then reduce the size to exclude
+  the largest item which is at the end, sift the head down because it is smol
+
+  */
   int end = len-1;
   while(end>0)
   {
@@ -166,8 +183,13 @@ void Sorts::heap(int* L, int len)
 
 int Sorts::partition(int* L,int s, int e)
 {
+  //select item at end as the pivot point
   int pivot = L[e];
   int i = s-1;
+  /*
+  split given section into two sections where everything on the left is lower
+  than the pivot point
+  */
   for(int j = s; j <=e; j++)
   {
     if(L[j]<=pivot)
@@ -184,6 +206,7 @@ int Sorts::partition(int* L,int s, int e)
 
 void Sorts::quick(int* L, int s,int e)
 {
+  //divide and conquer, if partition len>1, split and sort
   if(s<e)
   {
     int m = Sorts::partition(L,s,e);
@@ -194,6 +217,7 @@ void Sorts::quick(int* L, int s,int e)
 
 void Sorts::quick(int* L,int len)
 {
+  //call recursive sort
   Sorts::quick(L,0,len-1);
 }
 
@@ -207,6 +231,7 @@ void Sorts::bubble(int* L, int len)
   while( not finished )
   {
     finished=true;
+    //go from the start to finish swapping if next is lower
     for(int i=0; i <last;i++)
     {
       if(L[i]>L[i+1])
@@ -215,6 +240,7 @@ void Sorts::bubble(int* L, int len)
         finished=false;
       }
     }
+    //after each pass, last is biggest so reduce size
     last--;
   }
 }
@@ -269,7 +295,7 @@ void Sorts::radix(int* L, int len,int n)
       bucket[buck][0]+=1;
     }
 
-    //empty buckets back to the array
+    //dump buckets back to the array
     int buck=0,ind=1;
     for(int i =0; i < len; i++)
     {
@@ -286,5 +312,6 @@ void Sorts::radix(int* L, int len,int n)
 
 int Sorts::log_b(int x,int b)
 {
+  //gives log with base b through change of base formula
   return int(log(x)/log(b));
 }

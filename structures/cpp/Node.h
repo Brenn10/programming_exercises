@@ -3,7 +3,6 @@
 
 struct Node
 {
-  struct Node* parent;
   struct Node* leftChild;
   struct Node* rightChild;
   int data;

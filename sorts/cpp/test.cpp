@@ -1,18 +1,21 @@
-#include "BinaryTree.h"
+#include "Sorts.h"
 #include "iostream"
 #include <ctime>
 #include <cstdlib>
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-  BinaryTree tree;
-  srand(time(NULL));
+  int a[100];
   for(int i =0 ; i < 100;i++)
   {
     int num = rand();
-    cout << num << endl;
-    tree.add(num);
+    a[i]=num;
   }
-  cout<<tree.toString()<<endl;
+  Sorts::insertion(a,100);
+  for(int i =1; i < 100; i++)
+  {
+    if(a[i]<a[i-1])
+      cout <<"FAILURE"<<endl;
+  }
   return 0;
 }
