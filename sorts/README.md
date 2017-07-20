@@ -12,4 +12,5 @@ I decided I wanted to figure out and implement all of the major sorting algorith
 * Radix sort
 
 Implementations complete:
-  cpp
+* cpp
+* python

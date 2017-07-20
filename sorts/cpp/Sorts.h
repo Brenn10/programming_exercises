@@ -1,5 +1,5 @@
-#ifndef SORTS_H
-#define SORTS_H
+#ifndef BSC_SORTS_H
+#define BSC_SORTS_H
 class Sorts
 {
   public:

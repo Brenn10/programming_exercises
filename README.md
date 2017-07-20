@@ -14,8 +14,6 @@ My plan for implementation is below:
   * Radix sort
 * Data Structures
   * Heap
-  * Binary Tree
-  * Red-Black Tree
   * Linked List
   * Vector
   * Adjacency Graph
@@ -35,7 +33,7 @@ My plan for implementation is below:
   * Greedy
   * Djikstra
   * A*
-  * RRT(*)
+  * RRT
   * GVG
   * Potential gradient descent
 * Cryptography

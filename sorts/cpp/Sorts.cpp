@@ -19,14 +19,13 @@ void Sorts::insertion(int* L,int len)
     int j = i;
     //go from current to begining and swap while the current is greater tean the previous
     while (L[j-1]>L[j]) {
+      Sorts::swap(L,j-1,j);
       j--;
       if(j==0)
       {
         break;
       }
     }
-
-    Sorts::swap(L,j+1,i);
   }
 }
 

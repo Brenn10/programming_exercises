@@ -1,18 +1,15 @@
-#include "BinaryTree.h"
-#include "iostream"
-#include <ctime>
-#include <cstdlib>
+#include <LinkedList.h>
+#include "LinkedList.cpp"
+#include <iostream>
 using namespace std;
 
-int main(int argc, char const *argv[]) {
-  BinaryTree tree;
-  srand(time(NULL));
-  for(int i =0 ; i < 100;i++)
-  {
-    int num = rand();
-    cout << num << endl;
-    tree.add(num);
-  }
-  cout<<tree.toString()<<endl;
-  return 0;
+int main()
+{
+  LinkedList<int> ll = LinkedList<int>();
+  cout <<"Created"<<endl;
+  ll.addFront(1);
+  ll.addFront(2);
+  ll.addBack(5);
+  cout << ll.find(5)<<endl;
+  cout << ll.toString()<<endl;
 }
