@@ -82,9 +82,9 @@ def testRadix(n,mn,mx):
     return True
 
 if __name__ == '__main__':
-    n=100
+    n=int(sys.argv[1])
     mn=0
-    mx=100
+    mx=n*2
     print("Insertion: \t%s" %("Success" if testInsertion(n,mn,mx) else "Failure"))
     print("Selection: \t%s" %("Success" if testSelection(n,mn,mx) else "Failure"))
     print("Merge: \t\t%s" %("Success" if testMerge(n,mn,mx) else "Failure"))
