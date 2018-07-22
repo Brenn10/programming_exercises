@@ -14,7 +14,7 @@ Units are in AU, Solar masses, and years
 ```./sim.out <input> <output>```
 
 #Visualize
-Open NBodySimulation in Processing and execute
+Open NBodySimulation.pde in Processing and execute
 
 # Input File
 
