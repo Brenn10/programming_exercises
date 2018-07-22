@@ -22,4 +22,28 @@
 * SOFTWARE.
 */
 
-#include "LinkedList.h"
+#ifndef BSC_LIST_H
+#define BSC_LIST_H
+template<class T>
+class List
+{
+  public:
+
+    virtual bool push_front(T data);
+    virtual bool push_back(T data);
+
+    virtual bool insert(T data, int index);
+
+    virtual T pop_front();
+    virtual T pop_back();
+
+    virtual T remove(int index);
+
+    virtual bool contains(T data);
+
+    virtual void shuffle()
+    virtual void sort();
+
+    virtual int size();
+};
+#endif

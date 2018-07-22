@@ -22,4 +22,14 @@
 * SOFTWARE.
 */
 
-#include "LinkedList.h"
+#ifndef BSC_LINKEDLIST_H
+#define BSC_LINKEDLIST_H
+
+class LinkedList
+{
+  public:
+
+  private:
+    
+};
+#endif
