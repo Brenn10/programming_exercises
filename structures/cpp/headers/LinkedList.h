@@ -25,11 +25,46 @@
 #ifndef BSC_LINKEDLIST_H
 #define BSC_LINKEDLIST_H
 
-class LinkedList
+#include "List.h"
+
+template<class T>
+class LinkedList : public List
 {
   public:
+    LinkedList();
+    LinkedList(T** arr);
+    LinkedList(List l);
 
+    T peek_front();
+    T peek_back();
+    T at(int index);
+
+    bool push_front(T data);
+    bool push_back(T data);
+
+    bool insert(T data, int index);
+
+    T pop_front();
+    T pop_back();
+
+    T remove(int index);
+
+    bool contains(T data);
+
+    void shuffle();
+    void sort();
+
+    int size();
   private:
-    
+    struct DLLNode_t {
+      T data;
+      DLLNode_t parent;
+      DLLNode_t child;
+    };
+
+    DLLNode_t head;
+    DLLNode_t tail;
+    int size;
+
 };
 #endif

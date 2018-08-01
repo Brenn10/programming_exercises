@@ -28,22 +28,33 @@ template<class T>
 class List
 {
   public:
+    
 
+    // look
+    virtual T peek_front();
+    virtual T peek_back();
+
+    Virtual T at(int index);
+
+    // add
     virtual bool push_front(T data);
     virtual bool push_back(T data);
 
     virtual bool insert(T data, int index);
 
+    //remove
     virtual T pop_front();
     virtual T pop_back();
 
     virtual T remove(int index);
 
-    virtual bool contains(T data);
+    // -1 if not in list
+    virtual int contains(T data);
 
-    virtual void shuffle()
+    virtual void shuffle();
     virtual void sort();
 
+    //0 if empty
     virtual int size();
 };
 #endif

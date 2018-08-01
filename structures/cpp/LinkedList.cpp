@@ -23,3 +23,48 @@
 */
 
 #include "LinkedList.h"
+
+LinkedList::LinkedList() {
+  head=nullptr;
+  tail=nullptr;
+  size=0;
+}
+
+LinkedList::LinkedList(T** arr) : LinkedList(){
+  for(int i =0; i < sizeof(arr)/sizeof(T);++i) {
+    this->push_back(*arr[i]);
+  }
+}
+
+LinkedList::LinkedList(const List &l) : LinkedList() {
+  for(int i=0; i < l->size();++i) {
+    this->pop_back(l->at(i));
+  }
+}
+
+T LinkedList::peek_front() {
+  if(head) {
+    return this->head->data;
+  }
+  else {
+    return nullptr;
+  }
+}
+
+T LinkedList::peek_back() {
+  if(tail) {
+    return this->tail->data;
+  }
+  else {
+    return nullptr;
+  }
+}
+
+T LinkedList::at(int i) {
+  if(i<this->size() and head) {
+    DLLNode_t curr=head;
+    for(int u = 0; u < i; u++) {
+      curr=curr->child;
+    }
+  }
+}
