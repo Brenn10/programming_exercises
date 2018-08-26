@@ -58,12 +58,12 @@ class LinkedList : public List
   private:
     struct DLLNode_t {
       T data;
-      DLLNode_t parent;
-      DLLNode_t child;
+      DLLNode_t* parent;
+      DLLNode_t* child;
     };
 
-    DLLNode_t head;
-    DLLNode_t tail;
+    DLLNode_t *head;
+    DLLNode_t *tail;
     int size;
 
 };

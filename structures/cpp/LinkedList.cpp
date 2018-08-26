@@ -68,3 +68,16 @@ T LinkedList::at(int i) {
     }
   }
 }
+
+bool LinkedList::push_front(T data) {
+  if(head) {
+    DLLNode_t *newHead();
+    newHead->child=head;
+    head->parent=newHead;
+    head=newHead;
+  } else {
+    head = new DLLNode_t();
+  }
+  head->data=data;
+  ++this->size;
+}
